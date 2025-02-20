@@ -129,14 +129,17 @@
 
             let width = document.getElementById("x").value;
             let height = document.getElementById("y").value;
+
             let format = document.getElementById("format").value;
             let txtColor = document.getElementById("chktxtcolor").checked ? "transparent" : document.getElementById("txtcolor").value.substring(1);
             let bgColor = document.getElementById("chkbgcolor").checked ? "transparent" : document.getElementById("bgcolor").value.substring(1);
             let showSize = document.getElementById("showSize").checked ? `(${width}x${height}) ` : "";
             
             let filename = `${name}.${format}`;
-            let imageText = `${showSize}${name}.${format}`;
-            let url = `https://placehold.co/${width}x${height}/${bgColor}/${txtColor}.${format}?text=${encodeURIComponent(imageText)}`;
+            let imageText = `${showSize}${filename}`;
+            let url = `https://placehold.co/${width}x${height}/${bgColor}/${txtColor}/${format}?text=${encodeURIComponent(imageText)}`;
+
+
 
             document.getElementById("generatedUrl").value = url;
             document.getElementById("filename").value = filename;
